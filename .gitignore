@@ -1,0 +1,12 @@
+target/
+dist/
+*.class
+*.log
+.idea/
+*.iml
+nbproject/private/
+.nb-gradle/
+.settings/
+.classpath
+.project
+.DS_Store

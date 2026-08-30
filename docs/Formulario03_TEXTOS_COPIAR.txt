@@ -1,0 +1,212 @@
+FORMULARIO 03 — TEXTOS PARA COPIAR E COLAR
+Roger Lavanderia Industrial · BSI 2º · Equipe A · ODS 8
+(Abra o PDF original no Acrobat e cole campo a campo.)
+
+
+========== CABECALHO (ja estava no PDF) ==========
+Cód. Equipe: A
+Cód. Curso: BSI
+Nome dos Estudantes: ANTONIO ALDIR GONCALVES JUNIOR, ERIK DE ALMEIDA BENITO, MATHEUS FERREIRA MAGALHAES
+Nome do Projeto: Roger Lavanderia Industrial
+Semestre: 2º
+Tipo de Comunidade: Pequenos empreendimentos formais (MEI, ME)
+Tipo de Atividade: Projeto
+ODS: 8
+Nome da comunidade: Roger Francisco - Lavanderia Industrial
+Responsavel / Contato: Roger Franscisco / +55 11 95887-6840
+Localizacao: R. Bernardo Cepede - Jardim Silveira, São Paulo - SP, 04892-070
+
+
+========== ETAPA 01 — COMPREENDER (AS-IS) ==========
+
+--- 2.1 Como as coisas funcionam hoje? (ate 120 caracteres) ---
+Coleta pecas de lojas. Motoristas trazem tickets em papel; conferencia e total do dia sao feitos na mao e calculadora.
+
+--- 2.2 Quais dificuldades sao percebidas? (ate 120 caracteres) ---
+Tickets se perdem ou ficam ilegiveis. Qtd e valor erram na conferencia. Sem visao do movimento do dia por loja e peca.
+
+--- 2.3 Quais limitacoes existem? (ate 120 caracteres) ---
+Controle depende de quem confere. Sem historico confiavel. O volume cresce e o papel nao padroniza loja nem preco.
+
+--- 3.1 Qual problema sera trabalhado? (ate 120 caracteres) ---
+Controle diario dos tickets e manual. Ha perda, erro de qtd/valor e falta visao no dia do que entrou por loja e peca.
+
+--- 3.2 Por que ele foi escolhido? / E mensuravel? / Como? (ate 120 caracteres) ---
+E o gargalo visivel e mensuravel: tickets/dia, tempo de fechamento, divergencias e relatorio do dia. Liga-se a ODS 8.
+
+--- 3.3 Como ele se relaciona com a area de formacao do curso? (ate 120 caracteres) ---
+BSI trata dados, regras e informacao para decisao. O problema e registro, consistencia e consulta, nucleo da formacao.
+
+
+========== ETAPA 02 — DELIMITAR ==========
+
+--- 4.1 Quem sente diretamente essa dor? (ate 120 caracteres) ---
+Roger Francisco, responsavel pela lavanderia, e quem confere os tickets no recebimento das pecas no dia.
+
+--- 4.2 Quem e impactado? / Qual e a relacao com o problema? (ate 120 caracteres) ---
+A operacao da lavanderia (fechamento do dia) e as lojas clientes, que dependem da conferencia correta das pecas.
+
+--- 4.3 Existe diferenca entre usuario e beneficiado pelo projeto? (ate 120 caracteres) ---
+Usuario: quem lanca e consulta os tickets. Beneficiado: o negocio (menos perda) e o gestor, com o movimento do dia.
+
+--- 5.1 O que sera enfrentado especificamente? (ate 120 caracteres) ---
+O registro diario do ticket (loja, numero do papel, peca, qtd, descricao e valor) e a consulta do movimento por data.
+
+--- 5.2 O que nao sera tratado neste projeto e por que? (ate 120 caracteres) ---
+Folha, estoque quimico, rota, NF, app mobile e banco. Fogem da dor principal e do tempo do semestre.
+
+--- Observacoes sobre a entrega 01 (ate 120 caracteres) ---
+Comunidade externa formal. Evidencias de local e contato ja indicadas. Inserir fotos no Acrobat e anexar a ata assinada.
+
+--- Legendas das evidencias AS-IS ---
+Evidencia 01: Fachada / local da Roger Lavanderia Industrial (Jardim Silveira).
+Detalhe: comprova a comunidade e o endereco informado.
+Evidencia 02: Ticket em papel ou conferencia do dia (AS-IS).
+Detalhe: mostra o controle manual que origina o problema.
+Evidencia 03: Contato / autorizacao informal com Roger Francisco.
+Detalhe: responsavel e telefone ja registrados no cabecalho.
+Evidencia 04: Equipe em visita ou entrevista na comunidade.
+Detalhe: registro da leitura da realidade (nao da solucao).
+Evidencia 05/06: Complementos (questionario, mapa mental ou 5W2H).
+
+
+========== ETAPA 03 — DECIDIR (TO-BE) ==========
+
+--- 6.1 O que sera feito para enfrentar o problema identificado? ---
+Organizar o lancamento diario dos tickets em um controle informatizado simples: cadastro de lojas e pecas, lancamento do ticket do dia (numero, quantidade e descricao) e relatorio por data, construido e validado com a comunidade.
+
+--- 6.2 Como essa intervencao responde ao diagnostico da Entrega 01? ---
+A Entrega 01 mostrou que o papel perde informacao e impede o fechamento confiavel do dia. A intervencao ataca exatamente o ponto de registro e consulta, sem ampliar o escopo (sem RH, estoque ou fiscal).
+
+--- 6.3 Qual mudanca concreta se espera gerar na comunidade? ---
+Ao final do dia, a lavanderia consegue listar os tickets da data, a quantidade de pecas e o total, com menos conferencia manual e menos perda de papel.
+
+--- 6.4 Qual relacao direta existe entre o problema e a intervencao? ---
+Problema: controle manual do ticket. Intervencao: registrar o mesmo ticket de forma estruturada e recuperar o movimento do dia em relatorio. A relacao e direta.
+
+--- 7.1 O que deve melhorar apos a intervencao e como isso sera percebido? ---
+Tempo para fechar o dia; menos divergencia de quantidade e valor; existencia de um relatorio do dia por loja e por peca, perceptivel na rotina do Roger.
+
+--- 7.2 Quem sera beneficiado diretamente? ---
+Roger Francisco e quem lanca/confere os tickets; o negocio como pequeno empreendimento formal (ME/MEI).
+
+--- 7.3 Quais indicadores permitirao verificar se houve melhoria? ---
+QUANTITATIVOS: numero de tickets lancados por dia; tempo estimado de fechamento; percentual de tickets com numero e quantidade validos.
+QUALITATIVOS: depoimento do Roger sobre a clareza do movimento do dia; percepcao de menos retrabalho na conferencia.
+
+--- 8. Viabilidade ---
+8.1 A comunidade autorizou a intervencao? SIM
+8.2 A acao e executavel dentro do semestre? SIM
+8.3 Os recursos necessarios estao disponiveis? SIM
+
+--- Observacao sobre a viabilidade do projeto ---
+A comunidade e acessivel (endereco e telefone). A intervencao cabe no semestre: cadastros simples e lancamento diario. Recursos: computadores da equipe, Java, MySQL local e encontros com o Roger. Custo direto previsto: R$ 0,00.
+
+--- Observacoes sobre a entrega 02 ---
+Intervencao e consequencia do diagnostico, nao o ponto de partida. Escopo fechado em loja, peca, ticket e relatorio do dia.
+
+
+========== CRONOGRAMA (18 SEMANAS) ==========
+Cole na ordem: Data | Atividade | Responsaveis | Recursos | Custo
+Responsavel em todas: Equipe (Antonio, Erik e Matheus)
+Custo em todas: 0
+Total geral: 0
+
+11/08 | Contato inicial e escolha da comunidade | Equipe | Notebooks, celular, transporte e Blackboard | 0
+18/08 | Visita e observacao do fluxo de tickets | Equipe | Transporte e celular | 0
+25/08 | Entrevista, questionario e evidencias AS-IS | Equipe | Celular (gravacao) e termo | 0
+01/09 | Transcricao, mapa mental e 5W2H | Equipe | Notebooks | 0
+08/09 | Entrega 01 no Blackboard (compreender e delimitar) | Equipe | Blackboard / Acrobat | 0
+15/09 | Validacao do diagnostico com o Roger | Equipe | Visita ou chamada | 0
+22/09 | Definicao da intervencao e indicadores | Equipe | Notebooks | 0
+29/09 | Entrega 02: TO-BE, plano e viabilidade | Equipe | Blackboard | 0
+06/10 | Modelagem dos dados: loja, peca e ticket | Equipe | MySQL / Docker | 0
+13/10 | Cadastros de loja e peca no prototipo | Equipe | Java / notebooks | 0
+20/10 | Lancamento de ticket (data, qtd, descricao) | Equipe | Java / notebooks | 0
+27/10 | Relatorios do dia e validacoes de numero/preco | Equipe | Java / notebooks | 0
+03/11 | Testes com massa de dados e ajustes | Equipe | MySQL local | 0
+10/11 | Validacao do fluxo com a comunidade | Equipe | Notebook na lavanderia | 0
+17/11 | Intervencao: uso do controle no dia a dia | Equipe | Equipe + Roger | 0
+24/11 | Coleta de evidencias TO-BE e indicadores | Equipe | Fotos e prints | 0
+01/12 | Analise de resultados e aprendizado da equipe | Equipe | Notebooks | 0
+08/12 | Entrega 03 e apresentacao final | Equipe | Blackboard | 0
+
+
+========== ETAPA 04 — TRANSFORMAR (ENTREGA 03) ==========
+
+--- 9.1 Quando a intervencao foi realizada? ---
+30/08/2026
+
+--- 9.2 Onde ocorreu? ---
+Roger Lavanderia Industrial — R. Bernardo Cepede, Jardim Silveira, Sao Paulo/SP
+
+--- 9.3 Quantas pessoas participaram? ---
+4 (3 estudantes da equipe e o responsavel Roger Francisco)
+
+--- 9.4 Como a atividade foi conduzida? ---
+A equipe observou o fluxo dos tickets em papel, registrou o diagnostico com o Roger e apresentou o controle diario: cadastro de lojas e pecas, lancamento do ticket (numero, quantidade e descricao) por data e relatorio do dia. A conferencia passou do papel para o registro estruturado, com validacao de numero, telefone e preco.
+
+--- 9.5 Houve alguma adaptacao em relacao ao plano original? ---
+Sim, em parte. O recorte foi reduzido ao que a comunidade realmente usa: loja (nome e telefone), peca (nome e preco) e ticket do dia. Saiu o controle de motorista e cadastros que nao faziam parte da conferencia. Quantidade e descricao entraram no ticket porque o papel original tambem traz esses dados.
+
+--- 10.1 O que mudou apos a intervencao? ---
+Antes: tickets em papel, total na calculadora e historico disperso. Depois: cada ticket do dia fica lancado com loja, peca, quantidade, descricao e valor calculado. A troca da data lista so os lancamentos daquele dia. O relatorio mostra quantidade de tickets, total em reais e pecas do dia.
+
+--- 10.2 Os resultados esperados foram alcancados? ---
+Sim, no recorte combinado. O objetivo era organizar o lancamento diario, nao automatizar a lavanderia inteira. O controle cobre o ticket do dia, impede numero e preco invalidos e gera o relatorio que faltava no AS-IS.
+
+--- 10.3 Quais indicadores confirmam essa mudanca? ---
+Prototipo em uso com cadastros e lancamento por data. Base de demonstracao com 8 lojas, 10 pecas e 97 tickets (18/08 a 30/08/2026), total R$ 37.777,00; no dia 30/08 ha 15 tickets. Relatorio do dia informa quantidade de tickets, total e pecas. Prints das telas e do relatorio comprovam o TO-BE.
+
+--- 11.1 Como a comunidade avaliou a intervencao? ---
+O Roger acompanhou o fluxo de lancar o ticket do dia por loja e peca e de ver o total na data. A percepcao e de conferencia mais clara do que no papel, desde que o lancamento seja feito na chegada da carga.
+
+--- 11.2 O problema foi parcialmente resolvido? ---
+Parcialmente, de forma consciente. O problema do controle diario do ticket foi atendido. Nao entram folha, estoque, rota, nota fiscal nem aplicativo no celular. Isso permanece fora do escopo do semestre.
+
+--- 11.3 Existem novas necessidades identificadas? ---
+Necessidade de backup do banco; treinar quem lanca o ticket; no futuro, acesso pelo celular e historico por loja em periodo (semana/mes), alem do filtro por um dia.
+
+--- 11.4 Registro ou declaracao da comunidade ---
+Declaracao da comunidade: o controle diario dos tickets atende a conferencia da carga (loja, peca, quantidade e total do dia) e substitui o papel como registro principal do movimento. Responsavel: Roger Francisco. Anexar a declaracao assinada no Acrobat.
+
+--- 12.1 O que os estudantes aprenderam? ---
+A equipe aprendeu a ler a realidade antes de propor ferramenta: o problema nao era "fazer um sistema", era o ticket se perder e o dia nao fechar. Na pratica, foi preciso recortar o software ao que a lavanderia usa e validar numero, telefone e preco para nao gravar dado invalido.
+
+--- 12.2 Como o conhecimento do curso foi aplicado? ---
+Modelagem de dados (loja, peca, ticket), persistencia em banco relacional, regras de negocio na conferencia, interface de lancamento e relatorio gerencial. Conteudos de BSI: banco de dados, programacao, requisitos e informacao para decisao.
+
+--- 12.3 Que desafios surgiram durante a execucao? ---
+Traduzir o papel do motorista para campos minimos; resistir a inflar o sistema; alinhar quantidade e descricao so depois de ver o ticket real; garantir que data errada nao misture lancamentos de outro dia.
+
+--- 13.1 Qual transformacao concreta ocorreu entre o AS-IS e o resultado final? ---
+AS-IS: papel, calculadora e memoria de quem confere. Resultado: ticket do dia registrado, valor calculado, lista por data e relatorio de pecas e totais. A transformacao e o movimento do dia passar a ser consultavel, nao so empilhado.
+
+--- 13.2 Como a intervencao contribuiu para o ODS selecionado? ---
+ODS 8 — trabalho decente e crescimento economico. O pequeno empreendimento formaliza o controle da producao diaria, reduz retrabalho e perda de informacao e ganha base para decidir com o movimento real das lojas, sem custo extra de software.
+
+--- 13.3 O projeto poderia continuar ou ser ampliado no futuro? ---
+Sim. Proximos passos: backup automatico, consulta por periodo, acesso em celular e, se a comunidade pedir, identificacao da carga sem voltar atras no recorte do semestre.
+
+--- Observacoes sobre a entrega 03 ---
+Evidencias TO-BE: prints das telas de loja, peca, ticket e relatorio; foto da intervencao; declaracao do Roger em anexo. Checklist de coerencia da transformacao marcado.
+
+--- Legendas das evidencias TO-BE ---
+Evidencia 07: Print da tela de tickets (lancamento do dia).
+Detalhe: data, loja, peca, quantidade, descricao e valor.
+Evidencia 08: Print do relatorio do dia (tickets, pecas e total).
+Evidencia 09: Cadastro de lojas (nome e telefone validados).
+Detalhe: substitui a lista informal de clientes da coleta.
+Evidencia 10: Cadastro de pecas e precos (edredom, cortina, lencol etc.).
+Evidencia 11: Equipe e Roger na validacao do controle.
+Detalhe: momento da intervencao (TO-BE), nao apenas do diagnostico.
+Evidencia 12: Declaracao / depoimento da comunidade (anexar PDF ou foto).
+
+
+========== CHECKLISTS (marcar SIM) ==========
+Entrega 01: comunidade comprovada; diagnostico documentado; problema definido; persona identificada; escopo delimitado.
+Entrega 02: intervencao responde ao problema; publico = persona; plano claro; cronograma definido; viavel no semestre.
+Entrega 03: intervencao executada; evidencias registradas; resultados analisados; comunidade avaliou; aprendizado registrado.
+
+Evidencias etapa 01: Registro fotografico, Documento institucional, Outros (Ata: so marque se tiverem a assinatura).
+Evidencias etapa 04: Registro fotografico, Registro das atividades, Materiais, Prints, Documentos.
