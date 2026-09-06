@@ -16,10 +16,12 @@ import java.util.List;
 public class TicketDAO {
 
     private static final String COLUNAS = "SELECT t.id, t.loja_id, l.nome AS loja_nome, "
-            + "t.peca_id, p.nome AS peca_nome, t.numero, t.data_ticket, t.quantidade, t.descricao, t.valor_total "
+            + "t.peca_id, p.nome AS peca_nome, t.motorista_id, m.nome AS motorista_nome, "
+            + "t.numero, t.data_ticket, t.quantidade, t.descricao, t.valor_total "
             + "FROM ticket t "
             + "INNER JOIN loja l ON l.id = t.loja_id "
-            + "INNER JOIN peca p ON p.id = t.peca_id ";
+            + "INNER JOIN peca p ON p.id = t.peca_id "
+            + "LEFT JOIN motorista m ON m.id = t.motorista_id ";
 
     public List<Ticket> listar() throws SQLException {
         String sql = COLUNAS + "ORDER BY t.data_ticket DESC, t.id DESC";
@@ -79,8 +81,8 @@ public class TicketDAO {
     }
 
     private void inserir(Ticket ticket) throws SQLException {
-        String sql = "INSERT INTO ticket (loja_id, peca_id, numero, data_ticket, quantidade, descricao, valor_total) "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO ticket (loja_id, peca_id, motorista_id, numero, data_ticket, quantidade, descricao, valor_total) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection cn = Conexao.getConnection();
              PreparedStatement ps = cn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             preencher(ps, ticket);
@@ -93,12 +95,12 @@ public class TicketDAO {
     }
 
     private void atualizar(Ticket ticket) throws SQLException {
-        String sql = "UPDATE ticket SET loja_id = ?, peca_id = ?, numero = ?, data_ticket = ?, quantidade = ?, descricao = ?, valor_total = ? "
+        String sql = "UPDATE ticket SET loja_id = ?, peca_id = ?, motorista_id = ?, numero = ?, data_ticket = ?, quantidade = ?, descricao = ?, valor_total = ? "
                 + "WHERE id = ?";
         try (Connection cn = Conexao.getConnection();
              PreparedStatement ps = cn.prepareStatement(sql)) {
             preencher(ps, ticket);
-            ps.setInt(8, ticket.getId());
+            ps.setInt(9, ticket.getId());
             ps.executeUpdate();
         }
     }
@@ -106,11 +108,12 @@ public class TicketDAO {
     private void preencher(PreparedStatement ps, Ticket ticket) throws SQLException {
         ps.setInt(1, ticket.getLojaId());
         ps.setInt(2, ticket.getPecaId());
-        ps.setString(3, ticket.getNumero());
-        ps.setDate(4, Date.valueOf(ticket.getDataTicket()));
-        ps.setInt(5, ticket.getQuantidade());
-        ps.setString(6, ticket.getDescricao());
-        ps.setBigDecimal(7, ticket.getValorTotal());
+        ps.setObject(3, ticket.getMotoristaId());
+        ps.setString(4, ticket.getNumero());
+        ps.setDate(5, Date.valueOf(ticket.getDataTicket()));
+        ps.setInt(6, ticket.getQuantidade());
+        ps.setString(7, ticket.getDescricao());
+        ps.setBigDecimal(8, ticket.getValorTotal());
     }
 
     private Ticket montar(ResultSet rs) throws SQLException {
@@ -120,6 +123,9 @@ public class TicketDAO {
         t.setLojaNome(rs.getString("loja_nome"));
         t.setPecaId(rs.getInt("peca_id"));
         t.setPecaNome(rs.getString("peca_nome"));
+        int motoristaId = rs.getInt("motorista_id");
+        t.setMotoristaId(rs.wasNull() ? null : motoristaId);
+        t.setMotoristaNome(rs.getString("motorista_nome"));
         t.setNumero(rs.getString("numero"));
         t.setDataTicket(rs.getDate("data_ticket").toLocalDate());
         t.setQuantidade(rs.getInt("quantidade"));

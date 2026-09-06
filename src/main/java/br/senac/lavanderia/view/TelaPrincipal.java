@@ -17,6 +17,8 @@ import java.awt.event.WindowEvent;
 public class TelaPrincipal extends JFrame {
 
     private final PainelLojas painelLojas = new PainelLojas();
+    private final PainelMotoristas painelMotoristas = new PainelMotoristas();
+    private final PainelCategorias painelCategorias = new PainelCategorias();
     private final PainelPecas painelPecas = new PainelPecas();
     private final PainelTickets painelTickets = new PainelTickets();
     private final PainelRelatorios painelRelatorios = new PainelRelatorios();
@@ -46,7 +48,7 @@ public class TelaPrincipal extends JFrame {
         JLabel titulo = new JLabel("Roger Lavanderia Industrial");
         titulo.setForeground(Color.WHITE);
         titulo.setFont(titulo.getFont().deriveFont(Font.BOLD, 22f));
-        JLabel sub = new JLabel("Lojas  |  Pecas  |  Tickets");
+        JLabel sub = new JLabel("Lojas  |  Motoristas  |  Categorias  |  Pecas  |  Tickets");
         sub.setForeground(new Color(210, 230, 238));
         JPanel textos = new JPanel(new BorderLayout());
         textos.setOpaque(false);
@@ -59,6 +61,8 @@ public class TelaPrincipal extends JFrame {
     private JTabbedPane criarAbas() {
         JTabbedPane abas = new JTabbedPane();
         abas.addTab("Lojas", painelLojas);
+        abas.addTab("Motoristas", painelMotoristas);
+        abas.addTab("Categorias", painelCategorias);
         abas.addTab("Pecas", painelPecas);
         abas.addTab("Tickets", painelTickets);
         abas.addTab("Relatorios", painelRelatorios);
@@ -77,6 +81,8 @@ public class TelaPrincipal extends JFrame {
 
     private void recarregarTudo() {
         painelLojas.recarregar();
+        painelMotoristas.recarregar();
+        painelCategorias.recarregar();
         painelPecas.recarregar();
         painelTickets.recarregarListas();
         painelRelatorios.recarregar();

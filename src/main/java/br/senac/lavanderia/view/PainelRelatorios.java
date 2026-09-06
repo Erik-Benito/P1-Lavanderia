@@ -30,7 +30,7 @@ public class PainelRelatorios extends JPanel {
     private final JLabel lblTotal = novoIndicador("Total do dia: R$ 0,00");
 
     private final DefaultTableModel modeloTickets = new DefaultTableModel(
-            new Object[]{"ID", "Loja", "Numero", "Peca", "Qtd", "Total"}, 0) {
+            new Object[]{"ID", "Loja", "Motorista", "Numero", "Peca", "Qtd", "Total"}, 0) {
         @Override
         public boolean isCellEditable(int row, int column) {
             return false;
@@ -115,6 +115,7 @@ public class PainelRelatorios extends JPanel {
                 modeloTickets.addRow(new Object[]{
                         t.getId(),
                         t.getLojaNome(),
+                        t.getMotoristaNome() == null ? "-" : t.getMotoristaNome(),
                         t.getNumero(),
                         t.getPecaNome(),
                         t.getQuantidade(),

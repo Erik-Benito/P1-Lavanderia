@@ -1,9 +1,11 @@
 package br.senac.lavanderia.view;
 
 import br.senac.lavanderia.dao.LojaDAO;
+import br.senac.lavanderia.dao.MotoristaDAO;
 import br.senac.lavanderia.dao.PecaDAO;
 import br.senac.lavanderia.dao.TicketDAO;
 import br.senac.lavanderia.model.Loja;
+import br.senac.lavanderia.model.Motorista;
 import br.senac.lavanderia.model.Peca;
 import br.senac.lavanderia.model.Ticket;
 import br.senac.lavanderia.util.Formatos;
@@ -40,11 +42,12 @@ public class PainelTickets extends JPanel {
     private final TicketDAO ticketDAO = new TicketDAO();
     private final LojaDAO lojaDAO = new LojaDAO();
     private final PecaDAO pecaDAO = new PecaDAO();
+    private final MotoristaDAO motoristaDAO = new MotoristaDAO();
     private final JTextField txtData = new JTextField(10);
     private LocalDate dataSelecionada = LocalDate.now();
 
     private final DefaultTableModel modelo = new DefaultTableModel(
-            new Object[]{"Cod.", "Loja", "Nº papel", "Peca", "Qtd", "Descricao", "Valor"}, 0) {
+            new Object[]{"Cod.", "Loja", "Motorista", "Nº papel", "Peca", "Qtd", "Descricao", "Valor"}, 0) {
         @Override
         public boolean isCellEditable(int row, int column) {
             return false;
@@ -136,9 +139,11 @@ public class PainelTickets extends JPanel {
                 Ticket t = lista.get(i);
                 String numero = t.getNumero() == null || t.getNumero().isBlank() ? "-" : t.getNumero();
                 String descricao = t.getDescricao() == null || t.getDescricao().isBlank() ? "-" : t.getDescricao();
+                String motorista = t.getMotoristaNome() == null || t.getMotoristaNome().isBlank() ? "-" : t.getMotoristaNome();
                 modelo.addRow(new Object[]{
                         t.getId(),
                         t.getLojaNome(),
+                        motorista,
                         numero,
                         t.getPecaNome(),
                         t.getQuantidade(),
@@ -179,9 +184,11 @@ public class PainelTickets extends JPanel {
     private void salvarTicket(Ticket existente) {
         List<Loja> lojas;
         List<Peca> pecas;
+        List<Motorista> motoristas;
         try {
             lojas = lojaDAO.listar();
             pecas = pecaDAO.listar();
+            motoristas = motoristaDAO.listar();
         } catch (Exception ex) {
             Mensagens.erro(this, ex.getMessage());
             return;
@@ -194,8 +201,13 @@ public class PainelTickets extends JPanel {
             Mensagens.aviso(this, "Cadastre uma peca na aba Pecas.");
             return;
         }
+        if (motoristas.isEmpty()) {
+            Mensagens.aviso(this, "Cadastre um motorista na aba Motoristas.");
+            return;
+        }
 
         JComboBox<Loja> cmbLoja = new JComboBox<>();
+        JComboBox<Motorista> cmbMotorista = new JComboBox<>();
         JComboBox<Peca> cmbPeca = new JComboBox<>();
         JTextField txtNumero = new JTextField(10);
         JSpinner spnQtd = new JSpinner(new SpinnerNumberModel(1, 1, 999, 1));
@@ -204,9 +216,13 @@ public class PainelTickets extends JPanel {
         txtDescricao.setWrapStyleWord(true);
         JLabel lblValor = new JLabel("R$ 0,00");
         cmbLoja.setPreferredSize(new Dimension(280, 28));
+        cmbMotorista.setPreferredSize(new Dimension(280, 28));
         cmbPeca.setPreferredSize(new Dimension(220, 28));
         for (int i = 0; i < lojas.size(); i++) {
             cmbLoja.addItem(lojas.get(i));
+        }
+        for (int i = 0; i < motoristas.size(); i++) {
+            cmbMotorista.addItem(motoristas.get(i));
         }
         for (int i = 0; i < pecas.size(); i++) {
             cmbPeca.addItem(pecas.get(i));
@@ -216,6 +232,7 @@ public class PainelTickets extends JPanel {
 
         if (existente != null) {
             selecionarLoja(cmbLoja, existente.getLojaId());
+            selecionarMotorista(cmbMotorista, existente.getMotoristaId());
             selecionarPeca(cmbPeca, existente.getPecaId());
             txtNumero.setText(existente.getNumero());
             spnQtd.setValue(Math.max(1, existente.getQuantidade()));
@@ -225,11 +242,12 @@ public class PainelTickets extends JPanel {
 
         JPanel form = Formulario.campos("Lancamento do ticket");
         Formulario.linha(form, 0, "Loja", cmbLoja);
-        Formulario.linha(form, 1, "Nº do ticket", txtNumero);
-        Formulario.linha(form, 2, "Peca", cmbPeca);
-        Formulario.linha(form, 3, "Quantidade", spnQtd);
-        Formulario.linha(form, 4, "Descricao", new JScrollPane(txtDescricao));
-        Formulario.linha(form, 5, "Valor", lblValor);
+        Formulario.linha(form, 1, "Motorista", cmbMotorista);
+        Formulario.linha(form, 2, "Nº do ticket", txtNumero);
+        Formulario.linha(form, 3, "Peca", cmbPeca);
+        Formulario.linha(form, 4, "Quantidade", spnQtd);
+        Formulario.linha(form, 5, "Descricao", new JScrollPane(txtDescricao));
+        Formulario.linha(form, 6, "Valor", lblValor);
 
         while (true) {
             if (!Formulario.confirmar(this, existente == null ? "Cadastrar ticket" : "Editar ticket", form)) {
@@ -242,9 +260,14 @@ public class PainelTickets extends JPanel {
                 continue;
             }
             Loja loja = (Loja) cmbLoja.getSelectedItem();
+            Motorista motorista = (Motorista) cmbMotorista.getSelectedItem();
             Peca peca = (Peca) cmbPeca.getSelectedItem();
             if (loja == null) {
                 Mensagens.aviso(this, "Selecione uma loja.");
+                continue;
+            }
+            if (motorista == null) {
+                Mensagens.aviso(this, "Selecione um motorista.");
                 continue;
             }
             if (peca == null) {
@@ -270,6 +293,8 @@ public class PainelTickets extends JPanel {
             Ticket ticket = existente == null ? new Ticket() : existente;
             ticket.setLojaId(loja.getId());
             ticket.setLojaNome(loja.getNome());
+            ticket.setMotoristaId(motorista.getId());
+            ticket.setMotoristaNome(motorista.getNome());
             ticket.setPecaId(peca.getId());
             ticket.setPecaNome(peca.getNome());
             ticket.setQuantidade(quantidade);
@@ -306,6 +331,19 @@ public class PainelTickets extends JPanel {
         for (int i = 0; i < combo.getItemCount(); i++) {
             Loja loja = combo.getItemAt(i);
             if (loja.getId() != null && loja.getId().equals(id)) {
+                combo.setSelectedIndex(i);
+                return;
+            }
+        }
+    }
+
+    private void selecionarMotorista(JComboBox<Motorista> combo, Integer id) {
+        if (id == null) {
+            return;
+        }
+        for (int i = 0; i < combo.getItemCount(); i++) {
+            Motorista motorista = combo.getItemAt(i);
+            if (motorista.getId() != null && motorista.getId().equals(id)) {
                 combo.setSelectedIndex(i);
                 return;
             }

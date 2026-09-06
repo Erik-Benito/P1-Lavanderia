@@ -10,6 +10,8 @@ public class Ticket {
     private String lojaNome;
     private Integer pecaId;
     private String pecaNome;
+    private Integer motoristaId;
+    private String motoristaNome;
     private String numero;
     private LocalDate dataTicket = LocalDate.now();
     private int quantidade = 1;
@@ -54,6 +56,22 @@ public class Ticket {
 
     public void setPecaNome(String pecaNome) {
         this.pecaNome = pecaNome;
+    }
+
+    public Integer getMotoristaId() {
+        return motoristaId;
+    }
+
+    public void setMotoristaId(Integer motoristaId) {
+        this.motoristaId = motoristaId;
+    }
+
+    public String getMotoristaNome() {
+        return motoristaNome;
+    }
+
+    public void setMotoristaNome(String motoristaNome) {
+        this.motoristaNome = motoristaNome;
     }
 
     public String getNumero() {
