@@ -50,6 +50,7 @@ public class PainelMotoristas extends JPanel {
                 modelo.addRow(new Object[]{motorista.getId(), motorista.getNome(), motorista.getTelefone()});
             }
         } catch (Exception e) {
+            Mensagens.erro(this, "Falha ao carregar motoristas:\n" + e.getMessage());
         }
     }
 
@@ -128,14 +129,14 @@ public class PainelMotoristas extends JPanel {
             Mensagens.aviso(this, "Selecione um motorista.");
             return;
         }
-        if (!Mensagens.confirmar(this, "Excluir o motorista selecionado?")) {
+        if (!Mensagens.confirmar(this, "Excluir o motorista? Os tickets ficam sem motorista.")) {
             return;
         }
         try {
             dao.excluir(motorista.getId());
             recarregar();
         } catch (Exception ex) {
-            Mensagens.erro(this, "Nao foi possivel excluir. O motorista pode ter tickets.\n" + ex.getMessage());
+            Mensagens.erro(this, "Nao foi possivel excluir o motorista.");
         }
     }
 }

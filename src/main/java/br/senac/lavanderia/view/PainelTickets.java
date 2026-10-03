@@ -45,6 +45,7 @@ public class PainelTickets extends JPanel {
     private final MotoristaDAO motoristaDAO = new MotoristaDAO();
     private final JTextField txtData = new JTextField(10);
     private LocalDate dataSelecionada = LocalDate.now();
+    private boolean primeiraCarga = true;
 
     private final DefaultTableModel modelo = new DefaultTableModel(
             new Object[]{"Cod.", "Loja", "Motorista", "Nº papel", "Peca", "Qtd", "Descricao", "Valor"}, 0) {
@@ -98,7 +99,26 @@ public class PainelTickets extends JPanel {
     }
 
     public void recarregarListas() {
+        if (primeiraCarga) {
+            ajustarDataInicial();
+            primeiraCarga = false;
+        }
         recarregarTabela();
+    }
+
+    private void ajustarDataInicial() {
+        try {
+            if (!ticketDAO.listarPorData(dataSelecionada).isEmpty()) {
+                return;
+            }
+            LocalDate ultima = ticketDAO.ultimaDataComTicket();
+            if (ultima != null) {
+                dataSelecionada = ultima;
+                txtData.setText(Formatos.data(ultima));
+            }
+        } catch (Exception e) {
+            Mensagens.erro(this, "Falha ao carregar tickets:\n" + e.getMessage());
+        }
     }
 
     private void aplicarDataDigitada(boolean corrigir) {
@@ -152,6 +172,7 @@ public class PainelTickets extends JPanel {
                 });
             }
         } catch (Exception e) {
+            Mensagens.erro(this, "Falha ao carregar tickets:\n" + e.getMessage());
         }
     }
 

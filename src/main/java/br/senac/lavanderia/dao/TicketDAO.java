@@ -50,6 +50,19 @@ public class TicketDAO {
         return lista;
     }
 
+    public LocalDate ultimaDataComTicket() throws SQLException {
+        String sql = "SELECT MAX(data_ticket) FROM ticket";
+        try (Connection cn = Conexao.getConnection();
+             PreparedStatement ps = cn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+            if (!rs.next()) {
+                return null;
+            }
+            Date data = rs.getDate(1);
+            return data == null ? null : data.toLocalDate();
+        }
+    }
+
     public Ticket buscarPorId(int id) throws SQLException {
         String sql = COLUNAS + "WHERE t.id = ?";
         try (Connection cn = Conexao.getConnection();

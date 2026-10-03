@@ -11,8 +11,6 @@ import javax.swing.JTabbedPane;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
 public class TelaPrincipal extends JFrame {
 
@@ -32,13 +30,7 @@ public class TelaPrincipal extends JFrame {
 
         add(criarTopo(), BorderLayout.NORTH);
         add(criarAbas(), BorderLayout.CENTER);
-
-        addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowOpened(WindowEvent e) {
-                conectar();
-            }
-        });
+        conectar();
     }
 
     private JPanel criarTopo() {

@@ -77,11 +77,24 @@ public class PecaDAO {
     }
 
     public void excluir(int id) throws SQLException {
-        String sql = "DELETE FROM peca WHERE id = ?";
-        try (Connection cn = Conexao.getConnection();
-             PreparedStatement ps = cn.prepareStatement(sql)) {
-            ps.setInt(1, id);
-            ps.executeUpdate();
+        try (Connection cn = Conexao.getConnection()) {
+            cn.setAutoCommit(false);
+            try {
+                try (PreparedStatement ps = cn.prepareStatement("DELETE FROM ticket WHERE peca_id = ?")) {
+                    ps.setInt(1, id);
+                    ps.executeUpdate();
+                }
+                try (PreparedStatement ps = cn.prepareStatement("DELETE FROM peca WHERE id = ?")) {
+                    ps.setInt(1, id);
+                    ps.executeUpdate();
+                }
+                cn.commit();
+            } catch (SQLException e) {
+                cn.rollback();
+                throw e;
+            } finally {
+                cn.setAutoCommit(true);
+            }
         }
     }
 

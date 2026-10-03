@@ -50,6 +50,7 @@ public class PainelLojas extends JPanel {
                 modelo.addRow(new Object[]{loja.getId(), loja.getNome(), loja.getTelefone()});
             }
         } catch (Exception e) {
+            Mensagens.erro(this, "Falha ao carregar lojas:\n" + e.getMessage());
         }
     }
 
@@ -128,14 +129,14 @@ public class PainelLojas extends JPanel {
             Mensagens.aviso(this, "Selecione uma loja.");
             return;
         }
-        if (!Mensagens.confirmar(this, "Excluir a loja selecionada?")) {
+        if (!Mensagens.confirmar(this, "Excluir a loja e os tickets ligados a ela?")) {
             return;
         }
         try {
             dao.excluir(loja.getId());
             recarregar();
         } catch (Exception ex) {
-            Mensagens.erro(this, "Nao foi possivel excluir. A loja pode ter tickets.\n" + ex.getMessage());
+            Mensagens.erro(this, "Nao foi possivel excluir a loja.");
         }
     }
 }

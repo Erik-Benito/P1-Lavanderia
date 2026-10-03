@@ -71,11 +71,24 @@ public class CategoriaDAO {
     }
 
     public void excluir(int id) throws SQLException {
-        String sql = "DELETE FROM categoria WHERE id = ?";
-        try (Connection cn = Conexao.getConnection();
-             PreparedStatement ps = cn.prepareStatement(sql)) {
-            ps.setInt(1, id);
-            ps.executeUpdate();
+        try (Connection cn = Conexao.getConnection()) {
+            cn.setAutoCommit(false);
+            try {
+                try (PreparedStatement ps = cn.prepareStatement("UPDATE peca SET categoria_id = NULL WHERE categoria_id = ?")) {
+                    ps.setInt(1, id);
+                    ps.executeUpdate();
+                }
+                try (PreparedStatement ps = cn.prepareStatement("DELETE FROM categoria WHERE id = ?")) {
+                    ps.setInt(1, id);
+                    ps.executeUpdate();
+                }
+                cn.commit();
+            } catch (SQLException e) {
+                cn.rollback();
+                throw e;
+            } finally {
+                cn.setAutoCommit(true);
+            }
         }
     }
 
