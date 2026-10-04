@@ -1,26 +1,17 @@
 package br.senac.lavanderia.view;
 
-import br.senac.lavanderia.dao.CategoriaDAO;
 import br.senac.lavanderia.dao.PecaDAO;
+import br.senac.lavanderia.dao.CategoriaDAO;
 import br.senac.lavanderia.model.Categoria;
 import br.senac.lavanderia.model.Peca;
 import br.senac.lavanderia.util.Formatos;
 import br.senac.lavanderia.util.Mensagens;
-import br.senac.lavanderia.util.Validacoes;
 
-import javax.swing.BorderFactory;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
-import java.awt.BorderLayout;
 import java.util.List;
 
-public class PainelPecas extends JPanel {
+public class PainelPecas extends javax.swing.JPanel {
 
     private final PecaDAO dao = new PecaDAO();
     private final CategoriaDAO categoriaDAO = new CategoriaDAO();
@@ -31,19 +22,11 @@ public class PainelPecas extends JPanel {
             return false;
         }
     };
-    private final JTable tabela = new JTable(modelo);
 
     public PainelPecas() {
-        setLayout(new BorderLayout(8, 8));
-        setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        initComponents();
         tabela.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        tabela.setRowHeight(24);
-
-        JScrollPane scroll = new JScrollPane(tabela);
-        MenuContextoTabela.aplicar(tabela, scroll, this::excluir, this::incluir, this::editar);
-
-        add(scroll, BorderLayout.CENTER);
-        add(new JLabel("Botao direito na tabela: Filtrar, Excluir, Cadastrar, Editar"), BorderLayout.SOUTH);
+        MenuContextoTabela.aplicar(tabela, scrTabela, this::excluir, this::incluir, this::editar);
     }
 
     public void recarregar() {
@@ -65,7 +48,7 @@ public class PainelPecas extends JPanel {
     }
 
     private void incluir() {
-        salvar(null);
+        salvar(new Peca());
     }
 
     private void editar() {
@@ -90,7 +73,7 @@ public class PainelPecas extends JPanel {
         }
     }
 
-    private void salvar(Peca existente) {
+    private void salvar(Peca peca) {
         List<Categoria> categorias;
         try {
             categorias = categoriaDAO.listar();
@@ -102,71 +85,15 @@ public class PainelPecas extends JPanel {
             Mensagens.aviso(this, "Cadastre uma categoria na aba Categorias.");
             return;
         }
-
-        JTextField txtId = new JTextField(6);
-        txtId.setEditable(false);
-        JTextField txtNome = new JTextField(22);
-        JComboBox<Categoria> cmbCategoria = new JComboBox<>();
-        JTextField txtPreco = new JTextField(10);
-        for (int i = 0; i < categorias.size(); i++) {
-            cmbCategoria.addItem(categorias.get(i));
-        }
-        if (existente != null) {
-            txtId.setText(String.valueOf(existente.getId()));
-            txtNome.setText(existente.getNome());
-            selecionarCategoria(cmbCategoria, existente.getCategoriaId());
-            txtPreco.setText(existente.getPreco() == null ? "0" : existente.getPreco().toPlainString());
-        }
-
-        JPanel form = Formulario.campos("Cadastro de peca");
-        Formulario.linha(form, 0, "ID", txtId);
-        Formulario.linha(form, 1, "Nome *", txtNome);
-        Formulario.linha(form, 2, "Categoria *", cmbCategoria);
-        Formulario.linha(form, 3, "Preco *", txtPreco);
-
-        while (true) {
-            if (!Formulario.confirmar(this, existente == null ? "Cadastrar peca" : "Editar peca", form)) {
-                return;
-            }
-            String erro = Validacoes.nome(txtNome.getText(), "nome da peca", 3, 80);
-            if (erro == null) {
-                erro = Validacoes.preco(txtPreco.getText());
-            }
-            if (erro != null) {
-                Mensagens.aviso(this, erro);
-                continue;
-            }
-
-            Peca peca = existente == null ? new Peca() : existente;
-            Categoria categoria = (Categoria) cmbCategoria.getSelectedItem();
-            if (categoria == null) {
-                Mensagens.aviso(this, "Selecione uma categoria.");
-                continue;
-            }
-            peca.setNome(txtNome.getText().trim());
-            peca.setCategoriaId(categoria.getId());
-            peca.setPreco(Formatos.parseDecimal(txtPreco.getText()));
-            try {
-                dao.salvar(peca);
-                recarregar();
-                return;
-            } catch (Exception ex) {
-                Mensagens.erro(this, "Falha ao salvar peca:\n" + ex.getMessage());
-                return;
-            }
-        }
-    }
-
-    private void selecionarCategoria(JComboBox<Categoria> combo, Integer id) {
-        if (id == null) {
+        DialogPeca dialog = new DialogPeca(Mensagens.quadro(this), true);
+        if (!dialog.editar(peca, categorias)) {
             return;
         }
-        for (int i = 0; i < combo.getItemCount(); i++) {
-            Categoria categoria = combo.getItemAt(i);
-            if (categoria.getId() != null && categoria.getId().equals(id)) {
-                combo.setSelectedIndex(i);
-                return;
-            }
+        try {
+            dao.salvar(peca);
+            recarregar();
+        } catch (Exception ex) {
+            Mensagens.erro(this, "Falha ao salvar peca:\n" + ex.getMessage());
         }
     }
 
@@ -186,4 +113,36 @@ public class PainelPecas extends JPanel {
             Mensagens.erro(this, "Nao foi possivel excluir a peca.");
         }
     }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        scrTabela = new javax.swing.JScrollPane();
+        tabela = new javax.swing.JTable();
+        lblDica = new javax.swing.JLabel();
+
+        setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        setLayout(new java.awt.BorderLayout(8, 8));
+
+        tabela.setModel(modelo);
+        tabela.setRowHeight(24);
+        scrTabela.setViewportView(tabela);
+
+        add(scrTabela, java.awt.BorderLayout.CENTER);
+
+        lblDica.setText("Botao direito na tabela: Filtrar, Excluir, Cadastrar, Editar");
+        add(lblDica, java.awt.BorderLayout.SOUTH);
+    }// </editor-fold>//GEN-END:initComponents
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel lblDica;
+    private javax.swing.JScrollPane scrTabela;
+    private javax.swing.JTable tabela;
+    // End of variables declaration//GEN-END:variables
 }

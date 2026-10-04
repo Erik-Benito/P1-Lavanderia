@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="title" type="java.lang.String" value="Lancamento do ticket"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblLoja" attributes="0"/>
+                          <Component id="lblMotorista" attributes="0"/>
+                          <Component id="lblNumero" attributes="0"/>
+                          <Component id="lblPeca" attributes="0"/>
+                          <Component id="lblQtd" attributes="0"/>
+                          <Component id="lblDescricao" attributes="0"/>
+                          <Component id="lblValorTitulo" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="related" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="cmbLoja" pref="280" max="32767" attributes="0"/>
+                          <Component id="cmbMotorista" pref="280" max="32767" attributes="0"/>
+                          <Component id="txtNumero" min="-2" pref="120" max="-2" attributes="0"/>
+                          <Component id="cmbPeca" pref="280" max="32767" attributes="0"/>
+                          <Component id="spnQtd" min="-2" pref="80" max="-2" attributes="0"/>
+                          <Component id="scrDescricao" pref="280" max="32767" attributes="0"/>
+                          <Component id="lblValor" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="btnSalvar" attributes="0"/>
+                      <EmptySpace type="related" max="-2" attributes="0"/>
+                      <Component id="btnCancelar" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                  <Component id="lblLoja" alignment="3" attributes="0"/>
+                  <Component id="cmbLoja" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="related" max="-2" attributes="0"/>
+              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                  <Component id="lblMotorista" alignment="3" attributes="0"/>
+                  <Component id="cmbMotorista" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="related" max="-2" attributes="0"/>
+              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                  <Component id="lblNumero" alignment="3" attributes="0"/>
+                  <Component id="txtNumero" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="related" max="-2" attributes="0"/>
+              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                  <Component id="lblPeca" alignment="3" attributes="0"/>
+                  <Component id="cmbPeca" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="related" max="-2" attributes="0"/>
+              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                  <Component id="lblQtd" alignment="3" attributes="0"/>
+                  <Component id="spnQtd" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="related" max="-2" attributes="0"/>
+              <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                  <Component id="lblDescricao" attributes="0"/>
+                  <Component id="scrDescricao" min="-2" pref="70" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="related" max="-2" attributes="0"/>
+              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                  <Component id="lblValorTitulo" alignment="3" attributes="0"/>
+                  <Component id="lblValor" alignment="3" attributes="0"/>
+              </Group>
+              <EmptySpace min="18" pref="18" max="32767" attributes="0"/>
+              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                  <Component id="btnSalvar" alignment="3" attributes="0"/>
+                  <Component id="btnCancelar" alignment="3" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="lblLoja">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Loja"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cmbLoja">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;br.senac.lavanderia.model.Loja&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblMotorista">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Motorista"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cmbMotorista">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;br.senac.lavanderia.model.Motorista&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNumero">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nº do ticket"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtNumero">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblPeca">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Peca"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cmbPeca">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbPecaActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;br.senac.lavanderia.model.Peca&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblQtd">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Quantidade"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="spnQtd">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="1" maximum="999" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="spnQtdStateChanged"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblDescricao">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Descricao"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="scrDescricao">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+    
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="txtDescricao">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="lineWrap" type="boolean" value="true"/>
+            <Property name="rows" type="int" value="3"/>
+            <Property name="wrapStyleWord" type="boolean" value="true"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="lblValorTitulo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Valor"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblValor">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.editors2.FontEditor">
+          <FontInfo relative="true">
+            <Font bold="true" component="lblValor" property="font" relativeSize="true" size="0"/>
+          </FontInfo>
+        </Property>
+        <Property name="text" type="java.lang.String" value="R$ 0,00"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnSalvar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Salvar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalvarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnCancelar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cancelar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
+</Form>

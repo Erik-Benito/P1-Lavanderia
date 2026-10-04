@@ -12,38 +12,19 @@ import br.senac.lavanderia.util.Formatos;
 import br.senac.lavanderia.util.Mensagens;
 import br.senac.lavanderia.util.Validacoes;
 
-import javax.swing.BorderFactory;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JSpinner;
-import javax.swing.JTable;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
-import javax.swing.SpinnerNumberModel;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.List;
 
-public class PainelTickets extends JPanel {
+public class PainelTickets extends javax.swing.JPanel {
 
     private final TicketDAO ticketDAO = new TicketDAO();
     private final LojaDAO lojaDAO = new LojaDAO();
     private final PecaDAO pecaDAO = new PecaDAO();
     private final MotoristaDAO motoristaDAO = new MotoristaDAO();
-    private final JTextField txtData = new JTextField(10);
     private LocalDate dataSelecionada = LocalDate.now();
     private boolean primeiraCarga = true;
 
@@ -54,21 +35,11 @@ public class PainelTickets extends JPanel {
             return false;
         }
     };
-    private final JTable tabela = new JTable(modelo);
 
     public PainelTickets() {
-        setLayout(new BorderLayout(10, 10));
-        setBorder(BorderFactory.createEmptyBorder(12, 12, 12, 12));
-        tabela.setRowHeight(24);
+        initComponents();
         tabela.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         txtData.setText(Formatos.data(dataSelecionada));
-        txtData.addActionListener(e -> aplicarDataDigitada(true));
-        txtData.addFocusListener(new FocusAdapter() {
-            @Override
-            public void focusLost(FocusEvent e) {
-                aplicarDataDigitada(true);
-            }
-        });
         txtData.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
@@ -85,17 +56,7 @@ public class PainelTickets extends JPanel {
                 aplicarDataDigitada(false);
             }
         });
-
-        JPanel topo = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 0));
-        topo.add(new JLabel("Data"));
-        topo.add(txtData);
-
-        JScrollPane scroll = new JScrollPane(tabela);
-        MenuContextoTabela.aplicar(tabela, scroll, this::excluirTicket, this::incluirTicket, this::editarTicket);
-
-        add(topo, BorderLayout.NORTH);
-        add(scroll, BorderLayout.CENTER);
-        add(new JLabel("Botao direito na tabela: Filtrar, Excluir, Cadastrar, Editar"), BorderLayout.SOUTH);
+        MenuContextoTabela.aplicar(tabela, scrTabela, this::excluirTicket, this::incluirTicket, this::editarTicket);
     }
 
     public void recarregarListas() {
@@ -190,7 +151,7 @@ public class PainelTickets extends JPanel {
     }
 
     private void incluirTicket() {
-        salvarTicket(null);
+        salvarTicket(new Ticket());
     }
 
     private void editarTicket() {
@@ -202,7 +163,7 @@ public class PainelTickets extends JPanel {
         salvarTicket(ticket);
     }
 
-    private void salvarTicket(Ticket existente) {
+    private void salvarTicket(Ticket ticket) {
         List<Loja> lojas;
         List<Peca> pecas;
         List<Motorista> motoristas;
@@ -226,161 +187,22 @@ public class PainelTickets extends JPanel {
             Mensagens.aviso(this, "Cadastre um motorista na aba Motoristas.");
             return;
         }
-
-        JComboBox<Loja> cmbLoja = new JComboBox<>();
-        JComboBox<Motorista> cmbMotorista = new JComboBox<>();
-        JComboBox<Peca> cmbPeca = new JComboBox<>();
-        JTextField txtNumero = new JTextField(10);
-        JSpinner spnQtd = new JSpinner(new SpinnerNumberModel(1, 1, 999, 1));
-        JTextArea txtDescricao = new JTextArea(3, 22);
-        txtDescricao.setLineWrap(true);
-        txtDescricao.setWrapStyleWord(true);
-        JLabel lblValor = new JLabel("R$ 0,00");
-        cmbLoja.setPreferredSize(new Dimension(280, 28));
-        cmbMotorista.setPreferredSize(new Dimension(280, 28));
-        cmbPeca.setPreferredSize(new Dimension(220, 28));
-        for (int i = 0; i < lojas.size(); i++) {
-            cmbLoja.addItem(lojas.get(i));
-        }
-        for (int i = 0; i < motoristas.size(); i++) {
-            cmbMotorista.addItem(motoristas.get(i));
-        }
-        for (int i = 0; i < pecas.size(); i++) {
-            cmbPeca.addItem(pecas.get(i));
-        }
-        cmbPeca.addActionListener(e -> atualizarValor(cmbPeca, spnQtd, lblValor));
-        spnQtd.addChangeListener(e -> atualizarValor(cmbPeca, spnQtd, lblValor));
-
-        if (existente != null) {
-            selecionarLoja(cmbLoja, existente.getLojaId());
-            selecionarMotorista(cmbMotorista, existente.getMotoristaId());
-            selecionarPeca(cmbPeca, existente.getPecaId());
-            txtNumero.setText(existente.getNumero());
-            spnQtd.setValue(Math.max(1, existente.getQuantidade()));
-            txtDescricao.setText(existente.getDescricao() == null ? "" : existente.getDescricao());
-        }
-        atualizarValor(cmbPeca, spnQtd, lblValor);
-
-        JPanel form = Formulario.campos("Lancamento do ticket");
-        Formulario.linha(form, 0, "Loja", cmbLoja);
-        Formulario.linha(form, 1, "Motorista", cmbMotorista);
-        Formulario.linha(form, 2, "Nº do ticket", txtNumero);
-        Formulario.linha(form, 3, "Peca", cmbPeca);
-        Formulario.linha(form, 4, "Quantidade", spnQtd);
-        Formulario.linha(form, 5, "Descricao", new JScrollPane(txtDescricao));
-        Formulario.linha(form, 6, "Valor", lblValor);
-
-        while (true) {
-            if (!Formulario.confirmar(this, existente == null ? "Cadastrar ticket" : "Editar ticket", form)) {
-                return;
-            }
-            try {
-                spnQtd.commitEdit();
-            } catch (ParseException e) {
-                Mensagens.aviso(this, "Quantidade invalida.");
-                continue;
-            }
-            Loja loja = (Loja) cmbLoja.getSelectedItem();
-            Motorista motorista = (Motorista) cmbMotorista.getSelectedItem();
-            Peca peca = (Peca) cmbPeca.getSelectedItem();
-            if (loja == null) {
-                Mensagens.aviso(this, "Selecione uma loja.");
-                continue;
-            }
-            if (motorista == null) {
-                Mensagens.aviso(this, "Selecione um motorista.");
-                continue;
-            }
-            if (peca == null) {
-                Mensagens.aviso(this, "Selecione uma peca.");
-                continue;
-            }
-            int quantidade = (Integer) spnQtd.getValue();
-            String erro = Validacoes.numeroTicket(txtNumero.getText());
-            if (erro == null) {
-                erro = Validacoes.quantidade(quantidade);
-            }
-            if (erro == null) {
-                erro = Validacoes.descricao(txtDescricao.getText());
-            }
-            if (erro == null) {
-                erro = Validacoes.data(dataSelecionada);
-            }
-            if (erro != null) {
-                Mensagens.aviso(this, erro);
-                continue;
-            }
-
-            Ticket ticket = existente == null ? new Ticket() : existente;
-            ticket.setLojaId(loja.getId());
-            ticket.setLojaNome(loja.getNome());
-            ticket.setMotoristaId(motorista.getId());
-            ticket.setMotoristaNome(motorista.getNome());
-            ticket.setPecaId(peca.getId());
-            ticket.setPecaNome(peca.getNome());
-            ticket.setQuantidade(quantidade);
-            ticket.setDescricao(txtDescricao.getText().trim());
-            ticket.setValorTotal(peca.getPreco().multiply(BigDecimal.valueOf(quantidade)).setScale(2, RoundingMode.HALF_UP));
-            ticket.setNumero(txtNumero.getText().trim());
-            ticket.setDataTicket(dataSelecionada);
-            try {
-                ticketDAO.salvar(ticket);
-                recarregarTabela();
-                return;
-            } catch (Exception ex) {
-                Mensagens.erro(this, "Nao foi possivel salvar:\n" + ex.getMessage());
-                return;
-            }
-        }
-    }
-
-    private void atualizarValor(JComboBox<Peca> cmbPeca, JSpinner spnQtd, JLabel lblValor) {
-        Peca peca = (Peca) cmbPeca.getSelectedItem();
-        if (peca == null) {
-            lblValor.setText("R$ 0,00");
+        String erroData = Validacoes.data(dataSelecionada);
+        if (erroData != null) {
+            Mensagens.aviso(this, erroData);
             return;
         }
-        int quantidade = (Integer) spnQtd.getValue();
-        BigDecimal total = peca.getPreco().multiply(BigDecimal.valueOf(quantidade)).setScale(2, RoundingMode.HALF_UP);
-        lblValor.setText(Formatos.moeda(total));
-    }
 
-    private void selecionarLoja(JComboBox<Loja> combo, Integer id) {
-        if (id == null) {
+        DialogTicket dialog = new DialogTicket(Mensagens.quadro(this), true);
+        if (!dialog.editar(ticket, lojas, motoristas, pecas)) {
             return;
         }
-        for (int i = 0; i < combo.getItemCount(); i++) {
-            Loja loja = combo.getItemAt(i);
-            if (loja.getId() != null && loja.getId().equals(id)) {
-                combo.setSelectedIndex(i);
-                return;
-            }
-        }
-    }
-
-    private void selecionarMotorista(JComboBox<Motorista> combo, Integer id) {
-        if (id == null) {
-            return;
-        }
-        for (int i = 0; i < combo.getItemCount(); i++) {
-            Motorista motorista = combo.getItemAt(i);
-            if (motorista.getId() != null && motorista.getId().equals(id)) {
-                combo.setSelectedIndex(i);
-                return;
-            }
-        }
-    }
-
-    private void selecionarPeca(JComboBox<Peca> combo, Integer id) {
-        if (id == null) {
-            return;
-        }
-        for (int i = 0; i < combo.getItemCount(); i++) {
-            Peca peca = combo.getItemAt(i);
-            if (peca.getId() != null && peca.getId().equals(id)) {
-                combo.setSelectedIndex(i);
-                return;
-            }
+        ticket.setDataTicket(dataSelecionada);
+        try {
+            ticketDAO.salvar(ticket);
+            recarregarTabela();
+        } catch (Exception ex) {
+            Mensagens.erro(this, "Nao foi possivel salvar:\n" + ex.getMessage());
         }
     }
 
@@ -400,4 +222,70 @@ public class PainelTickets extends JPanel {
             Mensagens.erro(this, ex.getMessage());
         }
     }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        pnlTopo = new javax.swing.JPanel();
+        lblData = new javax.swing.JLabel();
+        txtData = new javax.swing.JTextField();
+        scrTabela = new javax.swing.JScrollPane();
+        tabela = new javax.swing.JTable();
+        lblDica = new javax.swing.JLabel();
+
+        setBorder(javax.swing.BorderFactory.createEmptyBorder(12, 12, 12, 12));
+        setLayout(new java.awt.BorderLayout(10, 10));
+
+        pnlTopo.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 8, 0));
+
+        lblData.setText("Data");
+        pnlTopo.add(lblData);
+
+        txtData.setColumns(10);
+        txtData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDataActionPerformed(evt);
+            }
+        });
+        txtData.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtDataFocusLost(evt);
+            }
+        });
+        pnlTopo.add(txtData);
+
+        add(pnlTopo, java.awt.BorderLayout.NORTH);
+
+        tabela.setModel(modelo);
+        tabela.setRowHeight(24);
+        scrTabela.setViewportView(tabela);
+
+        add(scrTabela, java.awt.BorderLayout.CENTER);
+
+        lblDica.setText("Botao direito na tabela: Filtrar, Excluir, Cadastrar, Editar");
+        add(lblDica, java.awt.BorderLayout.SOUTH);
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void txtDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataActionPerformed
+        aplicarDataDigitada(true);
+    }//GEN-LAST:event_txtDataActionPerformed
+
+    private void txtDataFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDataFocusLost
+        aplicarDataDigitada(true);
+    }//GEN-LAST:event_txtDataFocusLost
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel lblData;
+    private javax.swing.JLabel lblDica;
+    private javax.swing.JPanel pnlTopo;
+    private javax.swing.JScrollPane scrTabela;
+    private javax.swing.JTable tabela;
+    private javax.swing.JTextField txtData;
+    // End of variables declaration//GEN-END:variables
 }
