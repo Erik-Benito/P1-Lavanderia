@@ -125,6 +125,8 @@ public class DialogTicket extends javax.swing.JDialog {
 
         lblNumero.setText("Nº do ticket");
 
+        txtNumero.setToolTipText("Ex.: T-1840 (letras, numeros e hifen)");
+
         lblPeca.setText("Peca");
 
         cmbPeca.addActionListener(new java.awt.event.ActionListener() {
@@ -151,7 +153,7 @@ public class DialogTicket extends javax.swing.JDialog {
 
         scrDescricao.setViewportView(txtDescricao);
 
-        lblValorTitulo.setText("Valor");
+        lblValorTitulo.setText("Valor total");
 
         lblValor.setFont(lblValor.getFont().deriveFont(lblValor.getFont().getStyle() | java.awt.Font.BOLD));
         lblValor.setText("R$ 0,00");
