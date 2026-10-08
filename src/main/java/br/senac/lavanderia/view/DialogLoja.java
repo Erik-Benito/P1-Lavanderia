@@ -62,6 +62,8 @@ public class DialogLoja extends javax.swing.JDialog {
 
         lblTelefone.setText("Telefone");
 
+        txtTelefone.setToolTipText("DDD + numero, ex.: (11) 98765-4321");
+
         btnSalvar.setText("Salvar");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
