@@ -56,6 +56,8 @@ public class DialogCategoria extends javax.swing.JDialog {
 
         lblNome.setText("Nome *");
 
+        txtNome.setToolTipText("Ex.: Cama, Banho, Decoracao");
+
         btnSalvar.setText("Salvar");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
