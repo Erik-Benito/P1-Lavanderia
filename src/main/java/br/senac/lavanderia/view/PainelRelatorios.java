@@ -129,6 +129,7 @@ public class PainelRelatorios extends javax.swing.JPanel {
         pnlFiltro.add(txtData);
 
         btnAtualizar.setText("Atualizar");
+        btnAtualizar.setToolTipText("Recarrega os indicadores da data informada");
         btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAtualizarActionPerformed(evt);
