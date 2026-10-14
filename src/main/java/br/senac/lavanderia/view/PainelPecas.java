@@ -60,6 +60,7 @@ public class PainelPecas extends JPanel {
                 });
             }
         } catch (Exception e) {
+            Mensagens.erro(this, "Falha ao carregar pecas:\n" + e.getMessage());
         }
     }
 
@@ -175,14 +176,14 @@ public class PainelPecas extends JPanel {
             Mensagens.aviso(this, "Selecione uma peca.");
             return;
         }
-        if (!Mensagens.confirmar(this, "Excluir a peca selecionada?")) {
+        if (!Mensagens.confirmar(this, "Excluir a peca e os tickets ligados a ela?")) {
             return;
         }
         try {
             dao.excluir(peca.getId());
             recarregar();
         } catch (Exception ex) {
-            Mensagens.erro(this, "Nao foi possivel excluir. A peca pode estar em um ticket.\n" + ex.getMessage());
+            Mensagens.erro(this, "Nao foi possivel excluir a peca.");
         }
     }
 }

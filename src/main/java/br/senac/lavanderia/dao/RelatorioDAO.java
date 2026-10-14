@@ -24,6 +24,10 @@ public class RelatorioDAO {
         return ticketDAO.listarPorData(data);
     }
 
+    public LocalDate ultimaDataComTicket() throws SQLException {
+        return ticketDAO.ultimaDataComTicket();
+    }
+
     public BigDecimal totalDoDia(LocalDate data) throws SQLException {
         String sql = "SELECT IFNULL(SUM(valor_total), 0) FROM ticket WHERE data_ticket = ?";
         try (Connection cn = Conexao.getConnection();

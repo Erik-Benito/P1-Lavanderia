@@ -50,6 +50,7 @@ public class PainelCategorias extends JPanel {
                 modelo.addRow(new Object[]{categoria.getId(), categoria.getNome()});
             }
         } catch (Exception e) {
+            Mensagens.erro(this, "Falha ao carregar categorias:\n" + e.getMessage());
         }
     }
 
@@ -121,14 +122,14 @@ public class PainelCategorias extends JPanel {
             Mensagens.aviso(this, "Selecione uma categoria.");
             return;
         }
-        if (!Mensagens.confirmar(this, "Excluir a categoria selecionada?")) {
+        if (!Mensagens.confirmar(this, "Excluir a categoria? As pecas ficam sem categoria.")) {
             return;
         }
         try {
             dao.excluir(categoria.getId());
             recarregar();
         } catch (Exception ex) {
-            Mensagens.erro(this, "Nao foi possivel excluir. A categoria pode ter pecas.\n" + ex.getMessage());
+            Mensagens.erro(this, "Nao foi possivel excluir a categoria.");
         }
     }
 }

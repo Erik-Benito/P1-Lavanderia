@@ -26,6 +26,7 @@ public class PainelRelatorios extends JPanel {
 
     private final RelatorioDAO dao = new RelatorioDAO();
     private final JTextField txtData = new JTextField(10);
+    private boolean primeiraCarga = true;
     private final JLabel lblQtd = novoIndicador("Tickets: 0");
     private final JLabel lblTotal = novoIndicador("Total do dia: R$ 0,00");
 
@@ -106,6 +107,16 @@ public class PainelRelatorios extends JPanel {
                 Mensagens.aviso(this, erro);
                 return;
             }
+            if (primeiraCarga) {
+                primeiraCarga = false;
+                if (dao.quantidadeDoDia(data) == 0) {
+                    LocalDate ultima = dao.ultimaDataComTicket();
+                    if (ultima != null) {
+                        data = ultima;
+                        txtData.setText(Formatos.data(ultima));
+                    }
+                }
+            }
             lblQtd.setText("Tickets: " + dao.quantidadeDoDia(data));
             lblTotal.setText("Total do dia: " + Formatos.moeda(dao.totalDoDia(data)));
 
@@ -128,6 +139,7 @@ public class PainelRelatorios extends JPanel {
                 modeloPecas.addRow(new Object[]{nome, pecas.get(nome)});
             }
         } catch (Exception e) {
+            Mensagens.erro(this, "Falha ao carregar relatorio:\n" + e.getMessage());
         }
     }
 }

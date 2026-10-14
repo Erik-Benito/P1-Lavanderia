@@ -8,7 +8,8 @@ import java.sql.Statement;
 public class Conexao {
 
     private static final String URL = "jdbc:mysql://localhost:3306/lavanderia_roger"
-            + "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Sao_Paulo";
+            + "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Sao_Paulo"
+            + "&createDatabaseIfNotExist=true";
     private static final String USER = "root";
     private static final String PASSWORD = "root";
 
@@ -17,8 +18,11 @@ public class Conexao {
     }
 
     public static void testar() throws SQLException {
-        try (Connection cn = getConnection(); Statement st = cn.createStatement()) {
-            st.execute("SELECT 1");
+        try (Connection cn = getConnection()) {
+            BancoInicial.preparar(cn);
+            try (Statement st = cn.createStatement()) {
+                st.execute("SELECT 1");
+            }
         }
     }
 }
