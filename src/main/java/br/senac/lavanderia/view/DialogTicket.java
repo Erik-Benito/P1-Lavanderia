@@ -138,6 +138,7 @@ public class DialogTicket extends javax.swing.JDialog {
         lblQtd.setText("Quantidade");
 
         spnQtd.setModel(new javax.swing.SpinnerNumberModel(1, 1, 999, 1));
+        spnQtd.setToolTipText("Quantidade de pecas, de 1 a 999");
         spnQtd.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 spnQtdStateChanged(evt);
