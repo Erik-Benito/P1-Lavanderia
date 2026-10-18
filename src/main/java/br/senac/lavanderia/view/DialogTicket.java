@@ -160,6 +160,7 @@ public class DialogTicket extends javax.swing.JDialog {
         lblValor.setText("R$ 0,00");
 
         btnSalvar.setText("Salvar");
+        btnSalvar.setToolTipText("Grava o ticket (atalho: Enter)");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarActionPerformed(evt);
@@ -167,6 +168,7 @@ public class DialogTicket extends javax.swing.JDialog {
         });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.setToolTipText("Fecha sem salvar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
