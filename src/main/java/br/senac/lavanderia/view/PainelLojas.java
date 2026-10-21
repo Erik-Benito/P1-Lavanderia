@@ -112,6 +112,7 @@ public class PainelLojas extends javax.swing.JPanel {
 
         tabela.setModel(modelo);
         tabela.setRowHeight(24);
+        tabela.setToolTipText("Clique com o botao direito para cadastrar, editar, excluir ou filtrar");
         scrTabela.setViewportView(tabela);
 
         add(scrTabela, java.awt.BorderLayout.CENTER);
