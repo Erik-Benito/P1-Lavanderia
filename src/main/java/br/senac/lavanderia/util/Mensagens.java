@@ -4,6 +4,7 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import java.awt.Component;
+import java.awt.Frame;
 import java.awt.Point;
 import java.awt.Window;
 
@@ -30,10 +31,10 @@ public final class Mensagens {
         return Integer.valueOf(JOptionPane.YES_OPTION).equals(pane.getValue());
     }
 
-    public static boolean confirmarPainel(Component pai, String titulo, Object conteudo) {
-        JOptionPane pane = new JOptionPane(conteudo, JOptionPane.PLAIN_MESSAGE, JOptionPane.OK_CANCEL_OPTION);
-        mostrar(pai, pane, titulo);
-        return Integer.valueOf(JOptionPane.OK_OPTION).equals(pane.getValue());
+    /** Janela principal onde o componente esta, usada como dono dos formularios de cadastro. */
+    public static Frame quadro(Component pai) {
+        Window janela = janela(pai);
+        return janela instanceof Frame ? (Frame) janela : null;
     }
 
     public static String perguntar(Component pai, String mensagem, String titulo) {
