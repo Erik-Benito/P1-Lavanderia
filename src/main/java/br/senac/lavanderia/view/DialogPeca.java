@@ -82,6 +82,7 @@ public class DialogPeca extends javax.swing.JDialog {
         txtPreco.setToolTipText("Use virgula para os centavos, ex.: 45,00");
 
         btnSalvar.setText("Salvar");
+        btnSalvar.setToolTipText("Valida e grava o cadastro (atalho: Enter)");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarActionPerformed(evt);
@@ -89,6 +90,7 @@ public class DialogPeca extends javax.swing.JDialog {
         });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.setToolTipText("Fecha sem salvar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);

@@ -59,6 +59,7 @@ public class DialogCategoria extends javax.swing.JDialog {
         txtNome.setToolTipText("Ex.: Cama, Banho, Decoracao");
 
         btnSalvar.setText("Salvar");
+        btnSalvar.setToolTipText("Valida e grava o cadastro (atalho: Enter)");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarActionPerformed(evt);
@@ -66,6 +67,7 @@ public class DialogCategoria extends javax.swing.JDialog {
         });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.setToolTipText("Fecha sem salvar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
