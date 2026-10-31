@@ -11,6 +11,9 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Aba Relatorios: quantidade e valor total do dia, tickets e pecas lavadas.
+ */
 public class PainelRelatorios extends javax.swing.JPanel {
 
     private final RelatorioDAO dao = new RelatorioDAO();

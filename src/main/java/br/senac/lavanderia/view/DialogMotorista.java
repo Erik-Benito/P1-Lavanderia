@@ -4,6 +4,9 @@ import br.senac.lavanderia.model.Motorista;
 import br.senac.lavanderia.util.Mensagens;
 import br.senac.lavanderia.util.Validacoes;
 
+/**
+ * Formulario de cadastro e edicao de motorista (nome e telefone).
+ */
 public class DialogMotorista extends javax.swing.JDialog {
 
     private boolean confirmado;

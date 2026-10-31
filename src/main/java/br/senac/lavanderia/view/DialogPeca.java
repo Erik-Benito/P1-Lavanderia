@@ -8,6 +8,9 @@ import br.senac.lavanderia.util.Validacoes;
 
 import java.util.List;
 
+/**
+ * Formulario de cadastro e edicao de peca, com categoria e preco.
+ */
 public class DialogPeca extends javax.swing.JDialog {
 
     private boolean confirmado;

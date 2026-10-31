@@ -3,6 +3,9 @@ package br.senac.lavanderia.view;
 import br.senac.lavanderia.util.Conexao;
 import br.senac.lavanderia.util.Mensagens;
 
+/**
+ * Janela principal do sistema, com uma aba para cada cadastro e o relatorio.
+ */
 public class TelaPrincipal extends javax.swing.JFrame {
 
     private boolean conectado;
