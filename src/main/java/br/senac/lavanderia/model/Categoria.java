@@ -1,5 +1,8 @@
 package br.senac.lavanderia.model;
 
+/**
+ * Categoria das pecas (ex.: Cama, Banho, Decoracao).
+ */
 public class Categoria {
 
     private Integer id;
