@@ -8,6 +8,9 @@ import java.awt.Frame;
 import java.awt.Point;
 import java.awt.Window;
 
+/**
+ * Caixas de mensagem padronizadas (aviso, erro e confirmacao).
+ */
 public final class Mensagens {
 
     private Mensagens() {
