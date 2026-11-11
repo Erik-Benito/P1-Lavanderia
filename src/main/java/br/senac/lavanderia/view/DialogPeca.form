@@ -116,10 +116,13 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblPreco">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Preco *"/>
+        <Property name="text" type="java.lang.String" value="Preco (R$) *"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtPreco">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="Use virgula para os centavos, ex.: 45,00"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnSalvar">
       <Properties>

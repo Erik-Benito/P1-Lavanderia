@@ -77,7 +77,9 @@ public class DialogPeca extends javax.swing.JDialog {
 
         lblCategoria.setText("Categoria *");
 
-        lblPreco.setText("Preco *");
+        lblPreco.setText("Preco (R$) *");
+
+        txtPreco.setToolTipText("Use virgula para os centavos, ex.: 45,00");
 
         btnSalvar.setText("Salvar");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
