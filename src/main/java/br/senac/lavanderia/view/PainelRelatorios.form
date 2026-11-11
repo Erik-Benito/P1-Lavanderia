@@ -63,6 +63,7 @@
             <Component class="javax.swing.JButton" name="btnAtualizar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Atualizar"/>
+                <Property name="toolTipText" type="java.lang.String" value="Recarrega os indicadores da data informada"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAtualizarActionPerformed"/>
