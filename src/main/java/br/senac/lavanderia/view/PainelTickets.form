@@ -46,6 +46,7 @@
         <Component class="javax.swing.JTextField" name="txtData">
           <Properties>
             <Property name="columns" type="int" value="10"/>
+            <Property name="toolTipText" type="java.lang.String" value="Formato dd/MM/aaaa. A lista atualiza ao digitar a data"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDataActionPerformed"/>
@@ -72,6 +73,7 @@
               <Connection code="modelo" type="code"/>
             </Property>
             <Property name="rowHeight" type="int" value="24"/>
+            <Property name="toolTipText" type="java.lang.String" value="Clique com o botao direito para cadastrar, editar, excluir ou filtrar"/>
           </Properties>
         </Component>
       </SubComponents>

@@ -248,6 +248,7 @@ public class PainelTickets extends javax.swing.JPanel {
         pnlTopo.add(lblData);
 
         txtData.setColumns(10);
+        txtData.setToolTipText("Formato dd/MM/aaaa. A lista atualiza ao digitar a data");
         txtData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDataActionPerformed(evt);
@@ -264,6 +265,7 @@ public class PainelTickets extends javax.swing.JPanel {
 
         tabela.setModel(modelo);
         tabela.setRowHeight(24);
+        tabela.setToolTipText("Clique com o botao direito para cadastrar, editar, excluir ou filtrar");
         scrTabela.setViewportView(tabela);
 
         add(scrTabela, java.awt.BorderLayout.CENTER);
