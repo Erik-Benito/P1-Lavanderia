@@ -11,6 +11,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Acesso a tabela categoria: listar, buscar, salvar e excluir.
+ */
 public class CategoriaDAO {
 
     public List<Categoria> listar() throws SQLException {
