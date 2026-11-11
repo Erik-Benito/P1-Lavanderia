@@ -1,5 +1,8 @@
 package br.senac.lavanderia.model;
 
+/**
+ * Loja (cliente) que envia pecas para lavar.
+ */
 public class Loja {
 
     private Integer id;
