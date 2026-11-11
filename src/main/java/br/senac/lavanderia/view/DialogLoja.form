@@ -103,6 +103,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtTelefone">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="DDD + numero, ex.: (11) 98765-4321"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnSalvar">
       <Properties>
