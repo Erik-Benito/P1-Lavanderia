@@ -9,6 +9,7 @@
     <version>1.0.0</version>
     <name>Roger Lavanderia Industrial</name>
     <description>Projeto Integrador — controle de pecas, pedidos e financeiro</description>
+    <url>https://github.com/Erik-Benito/p1-lavanderia</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

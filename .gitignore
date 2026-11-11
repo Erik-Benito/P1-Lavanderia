@@ -10,3 +10,6 @@ nbproject/private/
 .classpath
 .project
 .DS_Store
+
+# logs de erro da JVM
+hs_err_pid*
