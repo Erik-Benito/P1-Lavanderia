@@ -2,9 +2,6 @@ package br.senac.lavanderia.model;
 
 import java.math.BigDecimal;
 
-/**
- * Tipo de peca lavada, com preco unitario e categoria.
- */
 public class Peca {
 
     private Integer id;

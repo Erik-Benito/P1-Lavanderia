@@ -3,9 +3,6 @@ package br.senac.lavanderia.util;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-/**
- * Regras de validacao dos campos. Cada metodo devolve a mensagem de erro ou null.
- */
 public final class Validacoes {
 
     private Validacoes() {

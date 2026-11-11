@@ -13,9 +13,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.regex.Pattern;
 
-/**
- * Menu do botao direito usado nas tabelas (Filtrar, Excluir, Cadastrar, Editar).
- */
 public class MenuContextoTabela {
 
     public static void aplicar(JTable tabela, JScrollPane scroll, Runnable excluir, Runnable incluir, Runnable editar) {

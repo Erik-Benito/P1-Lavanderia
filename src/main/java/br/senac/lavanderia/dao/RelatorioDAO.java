@@ -15,9 +15,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Consultas do relatorio diario: quantidade, total, tickets e pecas do dia.
- */
 public class RelatorioDAO {
 
     private final TicketDAO ticketDAO = new TicketDAO();

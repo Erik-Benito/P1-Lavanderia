@@ -3,7 +3,6 @@ package br.senac.lavanderia.terminal;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Monta uma tabela simples em texto para mostrar as listagens no terminal. */
 public class TabelaTexto {
 
     private static final int LARGURA_MAXIMA = 40;
@@ -15,7 +14,6 @@ public class TabelaTexto {
         this.cabecalho = cabecalho;
     }
 
-    /** Adiciona uma linha; valores nulos ou vazios aparecem como "-". */
     public void linha(Object... valores) {
         String[] textos = new String[cabecalho.length];
         for (int i = 0; i < cabecalho.length; i++) {
@@ -32,7 +30,6 @@ public class TabelaTexto {
         linhas.add(textos);
     }
 
-    /** Imprime a tabela com as colunas ajustadas ao maior valor. */
     public void imprimir() {
         int[] larguras = new int[cabecalho.length];
         for (int i = 0; i < cabecalho.length; i++) {

@@ -7,13 +7,8 @@ import java.time.LocalDate;
 import java.util.Scanner;
 import java.util.function.Function;
 
-/**
- * Leitura de dados digitados no terminal.
- * Nos metodos com "atual", apertar Enter sem digitar nada mantem o valor atual (usado na edicao).
- */
 public class Entrada {
 
-    /** Lancada quando a entrada termina (Ctrl+D / Ctrl+Z), para encerrar o menu sem erro. */
     public static class FimDaEntrada extends RuntimeException {
     }
 
@@ -32,7 +27,6 @@ public class Entrada {
         return scanner.nextLine().trim();
     }
 
-    /** Le o numero de uma opcao de menu, repetindo ate ser um numero valido. */
     public int opcao(String rotulo) {
         while (true) {
             String texto = linha(rotulo);
@@ -44,7 +38,6 @@ public class Entrada {
         }
     }
 
-    /** Le um inteiro positivo. Retorna null se o usuario deixar vazio. */
     public Integer id(String rotulo) {
         while (true) {
             String texto = linha(rotulo);
@@ -57,15 +50,11 @@ public class Entrada {
                     return valor;
                 }
             } catch (NumberFormatException e) {
-                // cai na mensagem abaixo
             }
             System.out.println("  Informe um numero inteiro maior que zero (ou Enter para cancelar).");
         }
     }
 
-    /**
-     * Le um texto e valida. A funcao de validacao devolve a mensagem de erro ou null se estiver ok.
-     */
     public String texto(String rotulo, String atual, Function<String, String> validacao) {
         while (true) {
             String texto = linha(rotulo + sufixo(atual));
@@ -97,7 +86,6 @@ public class Entrada {
                     return valor;
                 }
             } catch (NumberFormatException e) {
-                // cai na mensagem abaixo
             }
             System.out.println("  Informe um numero entre " + minimo + " e " + maximo + ".");
         }
@@ -125,7 +113,6 @@ public class Entrada {
         }
     }
 
-    /** Pergunta s/n e repete ate a resposta ser valida. */
     public boolean confirmar(String pergunta) {
         while (true) {
             String texto = linha(pergunta + " (s/n): ").toLowerCase();

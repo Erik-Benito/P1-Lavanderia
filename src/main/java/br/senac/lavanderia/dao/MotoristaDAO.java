@@ -11,9 +11,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Acesso a tabela motorista: listar, buscar, salvar e excluir.
- */
 public class MotoristaDAO {
 
     public List<Motorista> listar() throws SQLException {

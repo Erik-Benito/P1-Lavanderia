@@ -26,12 +26,6 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- * Menu de terminal: testa a conexao com o MySQL e faz o CRUD de todas as tabelas.
- *
- * Para abrir: rode esta classe (no NetBeans: botao direito > Run File)
- * ou rode o App passando o argumento "terminal".
- */
 public class MenuTerminal {
 
     private static final String[] TABELAS = {"loja", "motorista", "categoria", "peca", "ticket"};
@@ -96,11 +90,6 @@ public class MenuTerminal {
         }
     }
 
-    // ===================================================================
-    // Teste de conexao
-    // ===================================================================
-
-    /** Conecta no banco e mostra servidor, URL, usuario e total de registros por tabela. */
     private void testarConexao() {
         titulo("TESTE DE CONEXAO");
         long inicio = System.currentTimeMillis();
@@ -135,11 +124,6 @@ public class MenuTerminal {
         entrada.pausar();
     }
 
-    // ===================================================================
-    // Submenu generico
-    // ===================================================================
-
-    /** Mostra o submenu de CRUD e devolve a opcao escolhida (0 = voltar). */
     private int submenu(String nome) {
         System.out.println();
         titulo(nome.toUpperCase());
@@ -155,10 +139,6 @@ public class MenuTerminal {
     private void erro(String acao, SQLException e) {
         System.out.println("  Erro ao " + acao + ": " + e.getMessage());
     }
-
-    // ===================================================================
-    // Lojas
-    // ===================================================================
 
     private void menuLojas() {
         while (true) {
@@ -236,10 +216,6 @@ public class MenuTerminal {
         lojaDAO.salvar(loja);
         System.out.println(nova ? "  Loja cadastrada com ID " + loja.getId() + "." : "  Loja atualizada.");
     }
-
-    // ===================================================================
-    // Motoristas
-    // ===================================================================
 
     private void menuMotoristas() {
         while (true) {
@@ -320,10 +296,6 @@ public class MenuTerminal {
         System.out.println(novo ? "  Motorista cadastrado com ID " + motorista.getId() + "." : "  Motorista atualizado.");
     }
 
-    // ===================================================================
-    // Categorias
-    // ===================================================================
-
     private void menuCategorias() {
         while (true) {
             int opcao = submenu("Categorias");
@@ -396,10 +368,6 @@ public class MenuTerminal {
         categoriaDAO.salvar(categoria);
         System.out.println(nova ? "  Categoria cadastrada com ID " + categoria.getId() + "." : "  Categoria atualizada.");
     }
-
-    // ===================================================================
-    // Pecas
-    // ===================================================================
 
     private void menuPecas() {
         while (true) {
@@ -486,10 +454,6 @@ public class MenuTerminal {
         pecaDAO.salvar(peca);
         System.out.println(nova ? "  Peca cadastrada com ID " + peca.getId() + "." : "  Peca atualizada.");
     }
-
-    // ===================================================================
-    // Tickets
-    // ===================================================================
 
     private void menuTickets() {
         while (true) {
@@ -626,11 +590,6 @@ public class MenuTerminal {
         System.out.println(novo ? "  Ticket cadastrado com ID " + ticket.getId() + "." : "  Ticket atualizado.");
     }
 
-    // ===================================================================
-    // Auxiliares
-    // ===================================================================
-
-    /** Pede um ID ate o usuario escolher um que esteja na lista. Enter mantem o atual. */
     private <T> T escolher(String rotulo, Integer atual, List<T> opcoes) {
         while (true) {
             String texto = entrada.linha(rotulo + (atual == null ? ": " : " [" + atual + "]: "));
@@ -641,7 +600,6 @@ public class MenuTerminal {
                 try {
                     id = Integer.parseInt(texto);
                 } catch (NumberFormatException e) {
-                    // cai na mensagem abaixo
                 }
             }
             if (id != null) {
@@ -671,7 +629,6 @@ public class MenuTerminal {
         return null;
     }
 
-    /** Formata em reais trocando o espaco especial do Java por espaco normal (alguns terminais mostram "?"). */
     private String moeda(BigDecimal valor) {
         return Formatos.moeda(valor).replace('\u00A0', ' ');
     }

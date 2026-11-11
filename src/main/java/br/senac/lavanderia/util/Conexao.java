@@ -5,9 +5,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
- * Abre conexoes com o MySQL do projeto (docker compose up -d).
- */
 public class Conexao {
 
     private static final String URL = "jdbc:mysql://localhost:3306/lavanderia_roger"

@@ -11,9 +11,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Acesso a tabela peca (com o nome da categoria): listar, buscar, salvar e excluir.
- */
 public class PecaDAO {
 
     public List<Peca> listar() throws SQLException {

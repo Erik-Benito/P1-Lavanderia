@@ -11,9 +11,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Acesso a tabela loja: listar, buscar, salvar e excluir.
- */
 public class LojaDAO {
 
     public List<Loja> listar() throws SQLException {

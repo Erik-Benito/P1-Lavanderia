@@ -13,9 +13,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Acesso a tabela ticket, ja trazendo os nomes da loja, peca e motorista.
- */
 public class TicketDAO {
 
     private static final String COLUNAS = "SELECT t.id, t.loja_id, l.nome AS loja_nome, "

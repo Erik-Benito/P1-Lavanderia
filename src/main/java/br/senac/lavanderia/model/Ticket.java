@@ -3,9 +3,6 @@ package br.senac.lavanderia.model;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-/**
- * Ticket (papel) de um lancamento: loja, motorista, peca, quantidade e valor do dia.
- */
 public class Ticket {
 
     private Integer id;

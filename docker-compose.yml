@@ -1,4 +1,3 @@
-# Banco MySQL do projeto. Subir: docker compose up -d | Parar: docker compose down
 services:
   mysql:
     image: mysql:8.4

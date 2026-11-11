@@ -1,8 +1,5 @@
 package br.senac.lavanderia.model;
 
-/**
- * Motorista que faz a coleta e a entrega das pecas.
- */
 public class Motorista {
 
     private Integer id;

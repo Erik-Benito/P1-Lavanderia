@@ -5,9 +5,6 @@ import br.senac.lavanderia.view.TelaPrincipal;
 
 import javax.swing.SwingUtilities;
 
-/**
- * Ponto de entrada. Abre a tela grafica ou, com o argumento "terminal", o menu de terminal.
- */
 public class App {
 
     public static void main(String[] args) {

@@ -8,9 +8,6 @@ import java.awt.Frame;
 import java.awt.Point;
 import java.awt.Window;
 
-/**
- * Caixas de mensagem padronizadas (aviso, erro e confirmacao).
- */
 public final class Mensagens {
 
     private Mensagens() {
@@ -34,7 +31,6 @@ public final class Mensagens {
         return Integer.valueOf(JOptionPane.YES_OPTION).equals(pane.getValue());
     }
 
-    /** Janela principal onde o componente esta, usada como dono dos formularios de cadastro. */
     public static Frame quadro(Component pai) {
         Window janela = janela(pai);
         return janela instanceof Frame ? (Frame) janela : null;
