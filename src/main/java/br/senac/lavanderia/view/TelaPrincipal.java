@@ -70,7 +70,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pnlTextos.add(lblTitulo, java.awt.BorderLayout.NORTH);
 
         lblSubtitulo.setForeground(new java.awt.Color(210, 230, 238));
-        lblSubtitulo.setText("Lojas  |  Motoristas  |  Categorias  |  Pecas  |  Tickets");
+        lblSubtitulo.setText("Lojas  |  Motoristas  |  Categorias  |  Pecas  |  Tickets  |  Relatorios");
         pnlTextos.add(lblSubtitulo, java.awt.BorderLayout.SOUTH);
 
         pnlTopo.add(pnlTextos, java.awt.BorderLayout.CENTER);
