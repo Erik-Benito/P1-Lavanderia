@@ -7,6 +7,9 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Locale;
 
+/**
+ * Formatacao e leitura de datas (dd/MM/aaaa) e valores em reais.
+ */
 public final class Formatos {
 
     private static final Locale PT_BR = new Locale("pt", "BR");

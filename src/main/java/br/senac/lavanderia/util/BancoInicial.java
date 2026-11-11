@@ -8,6 +8,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 
+/**
+ * Cria as tabelas se nao existirem e popula dados de exemplo no primeiro uso.
+ */
 public final class BancoInicial {
 
     private BancoInicial() {
