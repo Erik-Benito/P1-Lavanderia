@@ -32,6 +32,7 @@ public class Entrada {
         return scanner.nextLine().trim();
     }
 
+    /** Le o numero de uma opcao de menu, repetindo ate ser um numero valido. */
     public int opcao(String rotulo) {
         while (true) {
             String texto = linha(rotulo);
@@ -124,6 +125,7 @@ public class Entrada {
         }
     }
 
+    /** Pergunta s/n e repete ate a resposta ser valida. */
     public boolean confirmar(String pergunta) {
         while (true) {
             String texto = linha(pergunta + " (s/n): ").toLowerCase();

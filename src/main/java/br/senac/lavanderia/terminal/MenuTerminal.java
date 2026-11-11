@@ -100,6 +100,7 @@ public class MenuTerminal {
     // Teste de conexao
     // ===================================================================
 
+    /** Conecta no banco e mostra servidor, URL, usuario e total de registros por tabela. */
     private void testarConexao() {
         titulo("TESTE DE CONEXAO");
         long inicio = System.currentTimeMillis();

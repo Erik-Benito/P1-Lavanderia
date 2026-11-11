@@ -15,6 +15,7 @@ public class TabelaTexto {
         this.cabecalho = cabecalho;
     }
 
+    /** Adiciona uma linha; valores nulos ou vazios aparecem como "-". */
     public void linha(Object... valores) {
         String[] textos = new String[cabecalho.length];
         for (int i = 0; i < cabecalho.length; i++) {
@@ -31,6 +32,7 @@ public class TabelaTexto {
         linhas.add(textos);
     }
 
+    /** Imprime a tabela com as colunas ajustadas ao maior valor. */
     public void imprimir() {
         int[] larguras = new int[cabecalho.length];
         for (int i = 0; i < cabecalho.length; i++) {
