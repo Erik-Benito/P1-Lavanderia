@@ -8,6 +8,9 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import java.util.List;
 
+/**
+ * Aba Categorias: lista as categorias e abre o formulario de cadastro pelo menu da tabela.
+ */
 public class PainelCategorias extends javax.swing.JPanel {
 
     private final CategoriaDAO dao = new CategoriaDAO();

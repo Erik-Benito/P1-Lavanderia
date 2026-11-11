@@ -13,6 +13,10 @@ import java.math.RoundingMode;
 import java.text.ParseException;
 import java.util.List;
 
+/**
+ * Formulario de lancamento do ticket: loja, motorista, peca e quantidade.
+ * O valor total e calculado pelo preco da peca vezes a quantidade.
+ */
 public class DialogTicket extends javax.swing.JDialog {
 
     private boolean confirmado;

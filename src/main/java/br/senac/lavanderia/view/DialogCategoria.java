@@ -4,6 +4,9 @@ import br.senac.lavanderia.model.Categoria;
 import br.senac.lavanderia.util.Mensagens;
 import br.senac.lavanderia.util.Validacoes;
 
+/**
+ * Formulario de cadastro e edicao de categoria de peca.
+ */
 public class DialogCategoria extends javax.swing.JDialog {
 
     private boolean confirmado;

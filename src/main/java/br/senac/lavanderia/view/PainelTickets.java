@@ -19,6 +19,9 @@ import javax.swing.table.DefaultTableModel;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * Aba Tickets: mostra os tickets do dia escolhido e permite lancar, editar e excluir.
+ */
 public class PainelTickets extends javax.swing.JPanel {
 
     private final TicketDAO ticketDAO = new TicketDAO();

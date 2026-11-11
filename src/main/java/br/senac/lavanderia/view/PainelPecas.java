@@ -11,6 +11,9 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import java.util.List;
 
+/**
+ * Aba Pecas: lista as pecas com categoria e preco.
+ */
 public class PainelPecas extends javax.swing.JPanel {
 
     private final PecaDAO dao = new PecaDAO();

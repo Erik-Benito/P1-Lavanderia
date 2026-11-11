@@ -8,6 +8,9 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import java.util.List;
 
+/**
+ * Aba Motoristas: lista os motoristas e abre o formulario de cadastro pelo menu da tabela.
+ */
 public class PainelMotoristas extends javax.swing.JPanel {
 
     private final MotoristaDAO dao = new MotoristaDAO();
